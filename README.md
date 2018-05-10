@@ -13,11 +13,12 @@ The diagram could be something like this:
 
 ![Multi cluster diagram](https://github.com/ipedrazas/multicluster.net/raw/master/assets/diagram01.png "Multi cluster diagram")
 
-What's the difference between `multi-cluster` and `multi-cloud`?
+
+**What's the difference between `multi-cluster` and `multi-cloud`?**
 
 There's not much difference really. Multi-cloud is multi-cluster, but not the other way around. The key of multi-cluster is to undertsand where the boundaries and responsabilities of  cluster are.
 
-Does multi-cloud support inter-cluster communication?
+**Does multi-cloud support inter-cluster communication?**
 
 Inter-cluster communication is covered by cluster federation, but this is our of scope of the multi-cluster approach. Bear in mind that to have intercluster communication you need 2 things: routable access from one cluster to the other and, a control plane that holds the state of the federation. Multi-cluster is a more lightweight approach. Once your requests is inside of a cluster, does not leave that cluster.
 
