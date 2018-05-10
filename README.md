@@ -2,7 +2,7 @@
 
 Multi cluster configurations are hard. Hard because there's a whole series of "little details" that will make that a totally valid solution be invalid when those details change. 
 
-This repo tries to group all the different configurations and gotchas I'm finding.
+This repo hosts the different configuration and files for [multicluster.net](https://multicluster.net) where I try to group and documenr all the different configurations and gotchas I find along the way.
 
 ## What is multi cluster, anyway?
 
@@ -13,6 +13,18 @@ The diagram could be something like this:
 
 ![Multi cluster diagram](https://github.com/ipedrazas/multicluster.net/raw/master/assets/diagram01.png "Multi cluster diagram")
 
+
+Notice that the top entry is a `GLB` (Global Load Balancer). A GLB allows to distribute traffic globally. We're going to be using a [Google cloud load balancer](https://cloud.google.com/load-balancing/) and a [Cloudflare load balancer](https://www.cloudflare.com/load-balancing/)
+
+Each load balancer is slightly different, so having a consistent terminology is very important. We will talk about:
+
+* Global Load Balancer: Public entry point for our application
+* Backend pool: Application / Pods
+* Ingress: Public entry point into a kubernetes cluster
+
+# Factors that affect High availa
+
+## Questions
 
 **What's the difference between `multi-cluster` and `multi-cloud`?**
 
