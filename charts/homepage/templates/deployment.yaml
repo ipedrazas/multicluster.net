@@ -19,6 +19,26 @@ spec:
         app: {{ template "homepage.name" . }}
         release: {{ .Release.Name }}
     spec:
+      affinity:
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+          - weight: 100
+            podAffinityTerm:
+              labelSelector:
+                matchExpressions:
+                - key: app
+                  operator: In
+                  values:
+                  - {{ template "homepage.name" . }}
+              topologyKey: "kubernetes.io/hostname"
+          # requiredDuringSchedulingIgnoredDuringExecution:
+          # - labelSelector:
+          #     matchExpressions:
+          #     - key: app
+          #       operator: In
+          #       values:
+          #       - {{ template "homepage.name" . }}
+          #   topologyKey: "kubernetes.io/hostname"
       containers:
         - name: {{ .Chart.Name }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
