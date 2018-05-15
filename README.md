@@ -4,6 +4,19 @@ Multi cluster configurations are hard. Hard because there's a whole series of "l
 
 This repo hosts the different configuration and files for [multicluster.net](https://multicluster.net) where I try to group and documenr all the different configurations and gotchas I find along the way.
 
+## What do we understand by High Availablity?
+
+The undderlying idea behind multi-cloud or multi-cluster is to increase availability of our applications. There are a few things to consider when aiming for a high availability.
+
+
+* Size of the cluster or Number of Nodes: small clusters are more brittle than bigger clusters. What is the right size of a cluster? to answer this question you should think on how much sapre capacity your cluster has and how many nodes lost that spare capacity can handle.
+* Number of replicas per application: how many replicas should you run per application?
+* HPA (horizontal pod autoscaler): lower and upper boundaries are as important.
+* affinity/antiaffinity rules: how toplace/schedule your pods. These settings help with placement: spreading the pods across different nodes or bin packing them. Be councious of the number of nodes and the number of replicas (with or without HPA).
+* Readiness/Liveness Probes: Defining proper probes is critical for the good health of a cluster. Bear in mind the implications of long/expensive health checks
+* Requests/Limits: specifying the requested resources helps the scheduler to place the pod in a certain node. Specifying the limits will help to guarantee that your application behaves well with the other citizens.
+
+
 ## What is multi cluster, anyway?
 
 Multi-cluster is basically running two or more clusters in paral.lel. The idea is that you will deploy a cluster add the appliation endpoint to a global load balancer and... that's it, pretty much.
