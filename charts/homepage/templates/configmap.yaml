@@ -20,6 +20,11 @@ data:
             proxy_http_version 1.1;
             proxy_set_header Connection "";   
         }
+        location /https/ {
+            proxy_pass http://http_backend;
+            proxy_http_version 1.1;
+            proxy_set_header Connection "";   
+        }
     }
     server {
         listen 8080 default_server;
@@ -27,7 +32,7 @@ data:
         root /usr/share/nginx/html;
         index index.html index.htm;
         location / {
-            index  index.html index.htm;
+            try_files $uri $uri/ =404;
         }
         error_page   500 502 503 504  /50x.html;
         location = /50x.html {
