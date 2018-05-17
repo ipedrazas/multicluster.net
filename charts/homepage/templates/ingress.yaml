@@ -28,9 +28,8 @@ spec:
   rules:
   - http:
       paths:
-        - path: /
-          backend:
-            serviceName: {{ $fullName }}
-            servicePort: http
+          - backend:
+              serviceName: {{ $fullName }}
+              servicePort: http
   
 {{- end }}

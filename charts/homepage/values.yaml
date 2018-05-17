@@ -6,12 +6,13 @@ replicaCount: 3
 
 image:
   repository: ipedrazas/multicluster
-  tag: v0.3
+  tag: v0.4
   pullPolicy: Always
 
 service:
   type: ClusterIP
   port: 80
+  containerPort: 3000
 
 ingress:
   enabled: true
@@ -21,10 +22,7 @@ ingress:
   hosts:
     - multicluster.net
   
-  tls: 
-    - secretName: homepage-tls
-      hosts:
-        - multicluster.net
+
 resources:
   limits:
     cpu: 100m
