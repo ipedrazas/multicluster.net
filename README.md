@@ -35,7 +35,6 @@ Each load balancer is slightly different, so having a consistent terminology is 
 * Backend pool: Application / Pods
 * Ingress: Public entry point into a kubernetes cluster
 
-# Factors that affect High availa
 
 ## Questions
 
