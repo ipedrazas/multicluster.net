@@ -25,14 +25,19 @@ ingress:
 
 resources:
   limits:
-    cpu: 100m
-    memory: 128Mi
+    cpu: 240m
+    memory: 256Mi
   requests:
-    cpu: 10m
-    memory: 32Mi
+    cpu: 120m
+    memory: 128Mi
 
 nodeSelector: {}
 
 tolerations: []
 
 affinity: {}
+
+hpa:
+  max: 9
+  min: 3
+  targetCPU: 60
